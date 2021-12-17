@@ -1,0 +1,39 @@
+
+{% extends 'urlshortener/base.html' %} 
+
+{% block body %}
+
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-header text-center py-3">
+      <h1>URL Shortener Application <i class="fas fa-link px-2"></i></h1>
+    </div>
+    <div class="px-3 py-4 text-center">
+      
+      <big>URL Shortener API - </big><a style="font-weight:bold" href="http://127.0.0.1:8000/api/">/api/</a>
+      <br> <p>Example - {"long_url": "https://google.com"}</p>
+      <br><big>URL Shortener API for Premium Users - </big><a style="font-weight:bold"href="http://127.0.0.1:8000/api/custom/">/api/custom/</a>
+      <br><p>Example - {"long_url": "https://google.com", "short_url": "custom"}
+   
+    </div>
+  </div>
+  {% if errors %}
+  <div class="alert alert-danger mt-4" role="alert">
+    <p>{{errors}}</p>
+  </div>
+  {% endif %}
+
+  {% if new_url %}
+
+  <div class="mx-auto text-center mt-5">
+    <h2 class="text-danger">Your shortened Url</h2>
+    <p>You can copy the Link below and share it with your friends</p>
+    <p class="">{{new_url}}</p>
+    <p><span class="text-danger">Previous URL:</span> {{long_url}}</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock body %}
+
+
+
